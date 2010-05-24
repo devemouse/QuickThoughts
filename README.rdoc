@@ -1,0 +1,5 @@
+== IT IS NOT FUNCTIONAL YET, I'M LEARNING WX WIDGETS FOR NOW
+
+== Description
+
+Quick Thoughts is a capture tool. It would be used as an aid for R&D projects. It's a bit like Evernote but not quite. The presure would be on Vi like GUI (so keyboard mostly).
