@@ -7,6 +7,7 @@ class Simple : public QuickThoughtsFrame
       Simple(const wxString& title);
 
       virtual void MainWindowActivatedEvtHdl( wxActivateEvent& event );
+		virtual void MainWindowCloseEvtHdl( wxCloseEvent& event );
       virtual void AddNoteEvtHdl( wxCommandEvent& event );
       virtual void FileSelectedEvtHdl( wxCommandEvent& event );
       virtual void ListFilesEvtHdl( wxFileDirPickerEvent& event );

@@ -38,7 +38,12 @@
  *-----------------------------------------------------------------------------*/
 void Simple::MainWindowActivatedEvtHdl( wxActivateEvent& event )
 {
-   event.Skip(); 
+}
+
+void Simple::MainWindowCloseEvtHdl( wxCloseEvent& event )
+{ 
+   m_Text->SaveFile();
+   event.Skip();
 }
 
 void Simple::FileSelectedEvtHdl( wxCommandEvent& event )

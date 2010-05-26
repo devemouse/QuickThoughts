@@ -11,6 +11,7 @@
 
 BEGIN_EVENT_TABLE( QuickThoughtsFrame, wxFrame )
 	EVT_ACTIVATE( QuickThoughtsFrame::_wxFB_MainWindowActivatedEvtHdl )
+	EVT_CLOSE( QuickThoughtsFrame::_wxFB_MainWindowCloseEvtHdl )
 	EVT_LISTBOX( ID_FILES_LIST, QuickThoughtsFrame::_wxFB_FileSelectedEvtHdl )
 	EVT_DIRPICKER_CHANGED( ID_DIR_PICKER, QuickThoughtsFrame::_wxFB_ListFilesEvtHdl )
 	EVT_BUTTON( ID_ADD_BUTTON, QuickThoughtsFrame::_wxFB_AddNoteEvtHdl )

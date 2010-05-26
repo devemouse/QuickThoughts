@@ -33,6 +33,7 @@ class QuickThoughtsFrame : public wxFrame
 		
 		// Private event handlers
 		void _wxFB_MainWindowActivatedEvtHdl( wxActivateEvent& event ){ MainWindowActivatedEvtHdl( event ); }
+		void _wxFB_MainWindowCloseEvtHdl( wxCloseEvent& event ){ MainWindowCloseEvtHdl( event ); }
 		void _wxFB_FileSelectedEvtHdl( wxCommandEvent& event ){ FileSelectedEvtHdl( event ); }
 		void _wxFB_ListFilesEvtHdl( wxFileDirPickerEvent& event ){ ListFilesEvtHdl( event ); }
 		void _wxFB_AddNoteEvtHdl( wxCommandEvent& event ){ AddNoteEvtHdl( event ); }
@@ -61,6 +62,7 @@ class QuickThoughtsFrame : public wxFrame
 		
 		// Virtual event handlers, overide them in your derived class
 		virtual void MainWindowActivatedEvtHdl( wxActivateEvent& event ){ event.Skip(); }
+		virtual void MainWindowCloseEvtHdl( wxCloseEvent& event ){ event.Skip(); }
 		virtual void FileSelectedEvtHdl( wxCommandEvent& event ){ event.Skip(); }
 		virtual void ListFilesEvtHdl( wxFileDirPickerEvent& event ){ event.Skip(); }
 		virtual void AddNoteEvtHdl( wxCommandEvent& event ){ event.Skip(); }
