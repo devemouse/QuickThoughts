@@ -3,8 +3,18 @@
 
 class Simple : public QuickThoughtsFrame
 {
-public:
-    Simple(const wxString& title);
-		virtual void MainWindowActivated( wxActivateEvent& event );
-		virtual void AddNote( wxCommandEvent& event );
+   public:
+      Simple(const wxString& title);
+
+      virtual void MainWindowActivatedEvtHdl( wxActivateEvent& event );
+      virtual void AddNoteEvtHdl( wxCommandEvent& event );
+      virtual void FileSelectedEvtHdl( wxCommandEvent& event );
+      virtual void ListFilesEvtHdl( wxFileDirPickerEvent& event );
+		virtual void dbgButton01ClickEvtHdl( wxCommandEvent& event );
+		virtual void dbgButton02ClickEvtHdl( wxCommandEvent& event );
+      
+
+   protected:
+      wxArrayString files;
+      void ListFiles(void);
 };

@@ -32,8 +32,12 @@ class QuickThoughtsFrame : public wxFrame
 	private:
 		
 		// Private event handlers
-		void _wxFB_MainWindowActivated( wxActivateEvent& event ){ MainWindowActivated( event ); }
-		void _wxFB_AddNote( wxCommandEvent& event ){ AddNote( event ); }
+		void _wxFB_MainWindowActivatedEvtHdl( wxActivateEvent& event ){ MainWindowActivatedEvtHdl( event ); }
+		void _wxFB_FileSelectedEvtHdl( wxCommandEvent& event ){ FileSelectedEvtHdl( event ); }
+		void _wxFB_ListFilesEvtHdl( wxFileDirPickerEvent& event ){ ListFilesEvtHdl( event ); }
+		void _wxFB_AddNoteEvtHdl( wxCommandEvent& event ){ AddNoteEvtHdl( event ); }
+		void _wxFB_dbgButton01ClickEvtHdl( wxCommandEvent& event ){ dbgButton01ClickEvtHdl( event ); }
+		void _wxFB_dbgButton02ClickEvtHdl( wxCommandEvent& event ){ dbgButton02ClickEvtHdl( event ); }
 		
 	
 	protected:
@@ -44,6 +48,7 @@ class QuickThoughtsFrame : public wxFrame
 			ID_TEXT_BOX,
 			ID_TEXT_LINE,
 			ID_ADD_BUTTON,
+			ID_DBG_BUTTON_01,
 		};
 		
 		wxListBox* m_filesList;
@@ -51,10 +56,16 @@ class QuickThoughtsFrame : public wxFrame
 		wxRichTextCtrl* m_Text;
 		wxTextCtrl* m_textLine;
 		wxButton* m_addButton;
+		wxButton* m_dbgButton01;
+		wxButton* m_dbgButton02;
 		
 		// Virtual event handlers, overide them in your derived class
-		virtual void MainWindowActivated( wxActivateEvent& event ){ event.Skip(); }
-		virtual void AddNote( wxCommandEvent& event ){ event.Skip(); }
+		virtual void MainWindowActivatedEvtHdl( wxActivateEvent& event ){ event.Skip(); }
+		virtual void FileSelectedEvtHdl( wxCommandEvent& event ){ event.Skip(); }
+		virtual void ListFilesEvtHdl( wxFileDirPickerEvent& event ){ event.Skip(); }
+		virtual void AddNoteEvtHdl( wxCommandEvent& event ){ event.Skip(); }
+		virtual void dbgButton01ClickEvtHdl( wxCommandEvent& event ){ event.Skip(); }
+		virtual void dbgButton02ClickEvtHdl( wxCommandEvent& event ){ event.Skip(); }
 		
 	
 	public:

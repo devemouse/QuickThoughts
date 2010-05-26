@@ -2,3 +2,5 @@
 *.swp
 *.dll
 *.exe
+cscope.out
+tags
