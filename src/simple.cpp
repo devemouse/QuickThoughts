@@ -61,7 +61,7 @@ void Simple::ListFilesEvtHdl( wxFileDirPickerEvent& event )
 
 void Simple::AddNoteEvtHdl( wxCommandEvent& event )
 { 
-   m_Text->AppendText(m_textLine->GetValue() + "\n");
+   m_Text->AppendText(m_textLine->GetValue() + wxT("\n"));
    m_textLine->Clear();
    event.Skip(); 
 }
