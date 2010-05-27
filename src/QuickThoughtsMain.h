@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////
-// C++ code generated with wxFormBuilder (version Apr 16 2008)
+// C++ code generated with wxFormBuilder (version Dec 21 2009)
 // http://www.wxformbuilder.org/
 //
 // PLEASE DO "NOT" EDIT THIS FILE!
@@ -61,16 +61,17 @@ class QuickThoughtsFrame : public wxFrame
 		wxButton* m_dbgButton02;
 		
 		// Virtual event handlers, overide them in your derived class
-		virtual void MainWindowActivatedEvtHdl( wxActivateEvent& event ){ event.Skip(); }
-		virtual void MainWindowCloseEvtHdl( wxCloseEvent& event ){ event.Skip(); }
-		virtual void FileSelectedEvtHdl( wxCommandEvent& event ){ event.Skip(); }
-		virtual void ListFilesEvtHdl( wxFileDirPickerEvent& event ){ event.Skip(); }
-		virtual void AddNoteEvtHdl( wxCommandEvent& event ){ event.Skip(); }
-		virtual void dbgButton01ClickEvtHdl( wxCommandEvent& event ){ event.Skip(); }
-		virtual void dbgButton02ClickEvtHdl( wxCommandEvent& event ){ event.Skip(); }
+		virtual void MainWindowActivatedEvtHdl( wxActivateEvent& event ) { event.Skip(); }
+		virtual void MainWindowCloseEvtHdl( wxCloseEvent& event ) { event.Skip(); }
+		virtual void FileSelectedEvtHdl( wxCommandEvent& event ) { event.Skip(); }
+		virtual void ListFilesEvtHdl( wxFileDirPickerEvent& event ) { event.Skip(); }
+		virtual void AddNoteEvtHdl( wxCommandEvent& event ) { event.Skip(); }
+		virtual void dbgButton01ClickEvtHdl( wxCommandEvent& event ) { event.Skip(); }
+		virtual void dbgButton02ClickEvtHdl( wxCommandEvent& event ) { event.Skip(); }
 		
 	
 	public:
+		
 		QuickThoughtsFrame( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("QuickThoughts"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 713,828 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 		~QuickThoughtsFrame();
 	
