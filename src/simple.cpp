@@ -27,15 +27,96 @@
 
    //SetMenuBar(mbar);
 
+   RegisterHotKey(0x5555, wxMOD_WIN, 'I');
 
    ListFiles();
-   m_filesList->SetSelection(0);
    m_Text->LoadFile(files[m_filesList->GetSelection()]);
+   m_textLine->SetFocus();
 }
 
 /*-----------------------------------------------------------------------------
  *  Event Handlers
  *-----------------------------------------------------------------------------*/
+void Simple::KeyEvtHdl( wxKeyEvent& event )
+{
+   if (event.GetModifiers() == wxMOD_CONTROL )
+   {
+      switch (event.GetKeyCode())
+      {
+         case '/':
+            {
+               wxString temp;
+               //temp.Printf(wxT("%d"), event.GetKeyCode());
+               temp.Printf(wxT("Selection: %d\nCount: %d"), m_filesList->GetSelection(), m_filesList->GetCount());
+               wxMessageBox( temp, _T("DEBUG"), wxOK);
+            }
+            break;
+
+         case 'J':
+            {
+               int selection = m_filesList->GetSelection();
+               if (wxNOT_FOUND == selection) selection = -1;
+
+               if (selection < (int) m_filesList->GetCount())
+               {
+                  selection++;
+                  m_filesList->SetSelection(selection);
+                  m_Text->SaveFile();
+                  m_Text->LoadFile(files[selection]);
+               }
+            }
+            break;
+
+         case 'K':
+            {
+               int selection = m_filesList->GetSelection();
+               if (wxNOT_FOUND == selection) selection = m_filesList->GetCount();
+
+               if (selection > 0)
+               {
+                  selection--;
+                  m_filesList->SetSelection(selection);
+                  m_Text->SaveFile();
+                  m_Text->LoadFile(files[selection]);
+               }
+            }
+            break;
+
+         case 'O':
+            {
+               wxDirDialog tmpDialog(this, wxT("Select a folder"), wxFileName::FileName(files[0]).GetPath());
+
+               if ( wxID_OK == tmpDialog.ShowModal())
+               {
+                  m_workingDirPicker->SetPath(tmpDialog.GetPath());
+                  ListFiles();
+               }
+            }
+            break;
+
+         case 'I':
+            m_Text->SetFocus();
+            break;
+
+         default:
+            event.Skip();
+            break;
+      }
+   }
+   else
+   {
+      switch (event.GetKeyCode())
+      {
+         case WXK_ESCAPE:
+            this->Iconize(true);
+            break;
+         default:
+            event.Skip();
+            break;
+      }
+   }
+}
+
 void Simple::MainWindowActivatedEvtHdl( wxActivateEvent& event )
 {
 }
@@ -90,7 +171,7 @@ void Simple::ListFiles(void)
    files.Clear();
 
    //get files list
-   wxDir(m_workingDirPicker->GetPath()).GetAllFiles(m_workingDirPicker->GetPath(), &files);
+   wxDir(m_workingDirPicker->GetPath()).GetAllFiles(m_workingDirPicker->GetPath(), &files, wxT("*.txt"));
 
    //convert full paths to file names without extension.
    wxArrayString fileNames;
@@ -103,6 +184,7 @@ void Simple::ListFiles(void)
 
    //add file names to list control
    m_filesList->InsertItems(fileNames,0);
+   m_filesList->SetSelection(0);
 }
 
 

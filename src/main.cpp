@@ -5,8 +5,11 @@ IMPLEMENT_APP(MyApp)
 
 bool MyApp::OnInit()
 {
-    Simple *simple = new Simple(wxT("Simple"));
-    simple->Show(true);
+   Simple *simple = new Simple(wxT("Simple"));
 
-    return true;
+   this->Connect( wxID_ANY, wxEVT_KEY_DOWN, wxKeyEventHandler( Simple::KeyEvtHdl ), NULL, simple );
+
+   simple->Show(true);
+
+   return true;
 }

@@ -13,6 +13,7 @@ class Simple : public QuickThoughtsFrame
       virtual void ListFilesEvtHdl( wxFileDirPickerEvent& event );
 		virtual void dbgButton01ClickEvtHdl( wxCommandEvent& event );
 		virtual void dbgButton02ClickEvtHdl( wxCommandEvent& event );
+      void KeyEvtHdl( wxKeyEvent& event );
       
 
    protected:
